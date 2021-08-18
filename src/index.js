@@ -38,7 +38,9 @@ const MORSE_TABLE = {
 };
 
 function decode(expr) {
-    // write your solution here
+    MORSE_TABLE['**********'] = ' ';
+    decodExpr = expr.match(/.{1,10}/g).map(a => a.replace(/0{2}/g, '').replace(/(10)/g, '.').replace(/(11)/g, '-'));
+    return decodExpr.map(a => MORSE_TABLE[a]).join('');
 }
 
 module.exports = {
